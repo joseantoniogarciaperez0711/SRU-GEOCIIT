@@ -178,61 +178,107 @@
   text-align: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 740px) {
 
   /* Estilos generales */
   * {
-      box-sizing: border-box;
-      margin: 0px;
-      padding: 0px;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
   }
 
   body {
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.5;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
   }
 
   /* Estilos de la barra de navegación */
   .navBar {
-      padding: 34px;
-      width: 100%;
+    padding: 34px;
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 100%;
   }
 
   .logo {
-      height: 40px;
+    height: 40px;
   }
 
   /* Estilos del mensaje de descripción */
   .descripcion-mensaje {
-      padding: 18vw;
+    padding: 12vw;
   }
 
   .descripcion-mensaje h1 {
-      font-size: 27px;
+    font-size: 28px;
+    margin-top: 33px;
   }
 
   /* Estilos del pie de página */
   .descripcion-pie {
-      width: 100%;
-      margin: auto;
+    width: 100%;
+    margin: auto;
 
   }
 
   .descripcion-pie h2 {
-      padding: 2vw;
-      font-size: 24px;
+    padding: 2vw;
+    font-size: 24px;
   }
 
   .descripcion-pie h4 {
-      font-size: 18px;
-      font-weight: 400;
-      color: #ffffffb0;
-      margin-bottom: 20px;
-      padding: 0 24px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #ffffffb0;
+    margin-bottom: 20px;
+    padding: 0 24px;
   }
 
   .descripcion-pie p {
-      margin-top: 10px;
+    margin-top: 10px;
   }
+}
+
+/* Estilos para pantallas moviles más pequeños */
+@media (min-width: 375px) and (max-width: 667px) {
+
+  .descripcion-mensaje h1 {
+    font-size: 28px;
+  }
+
+  .descripcion-pie h2 {
+    padding: 7vw;
+    font-size: 18px;
+  }
+
+  .descripcion-pie h4 {
+    font-size: 13px;
+  }
+}
+
+/* Estilos para pantallas moviles habituales*/
+@media (min-width: 390px) and (max-width: 844px) {
+  .descripcion-pie h4 {
+    font-size: 18px;
+  }
+}
+
+/* Estilos para pantallas tablets*/
+@media (min-width: 820px) and (max-width: 1180px) {
+
+  .descripcion-mensaje h1 {
+    font-size: 60px;
+  }
+
+  .descripcion-pie h4 {
+    font-size: 25px;
+  }
+
+  .facebook-button img,
+  .twitter-button img {
+    width: 70px;
+    height: 70px;
+  }
+
 }
