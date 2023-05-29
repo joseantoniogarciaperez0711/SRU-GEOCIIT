@@ -1,0 +1,378 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: #ca46462f;
+}
+
+/* Estilos de la ventana modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+}
+
+.modal h2 {
+    font-family: "Lemonada", sans-serif;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    border-radius: 25px;
+    margin: 12% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 26%;
+    height: 280px;
+    text-align: center;
+}
+
+.modal h2 {
+    font-size: 30px;
+    margin: 20px;
+}
+
+.modal p {
+    font-size: 20px;
+    margin: 20px;
+}
+
+/* Estilos para el botón de cierre */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos para el botón "Continuar" */
+#continue-btn {
+    background-color: #aa9863;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-family: "Lemonada", sans-serif;
+    letter-spacing: 2px;
+}
+
+#continue-btn:hover {
+    background-color: #4f4e4ef6;
+    color: white;
+}
+
+/*Boton Entrar y salir*/
+.crearCuenta {
+    position: relative;
+    margin: auto;
+    padding: 4px 12px;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+}
+
+.crearCuenta:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 50px;
+    background: #aa9863;
+    width: 45px;
+    height: 45px;
+    transition: all 0.3s ease;
+}
+
+.crearCuenta span {
+    position: relative;
+    font-family: "Lemonada", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+}
+
+.crearCuenta svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #ffffff;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+}
+
+.crearCuenta svg {
+    position: relative;
+    top: 0;
+    margin-right: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #ffffff;
+    stroke-width: 2;
+    transform: scaleX(-1);
+    transition: all 0.3s ease;
+}
+
+
+.crearCuenta:hover:before {
+    width: 100%;
+    background: #d4c474;
+}
+
+.crearCuenta:hover svg {
+    transform: translateX(-1);
+}
+
+.crearCuenta:active {
+    transform: scale(0.95);
+}
+
+/*NavBar*/
+.navbar {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+
+.navbar-logo {
+    height: 50px;
+    margin-right: 55px;
+}
+
+.navbar-btn {
+    position: relative;
+    color: rgba(0, 0, 0, 0);
+    display: flex;
+}
+
+.navbar-text {
+    display: flex;
+    color: rgb(255, 255, 255);
+    align-items: center;
+    gap: 8px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    font-family: "Inter", sans-serif;
+}
+
+.navbar-btn:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-radius: 45px;
+    background: #aa9863;
+    width: 45px;
+    height: 45px;
+    z-index: -1;
+    transform: translateY(-50%);
+    transition-duration: 200ms;
+}
+
+.navbar-btn:hover:before {
+    width: 100%;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom, rgba(14, 29, 51, 0.8), rgba(14, 29, 51, 0.2));
+}
+
+.hero-slider {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-slider .carousel-cell {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-slider .carousel-cell .inner {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    text-align: center;
+}
+
+.hero-slider .carousel-cell .inner .subtitle {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+    line-height: 1.2em;
+    font-weight: 200;
+    letter-spacing: 3px;
+    color: rgba(0, 0, 0, 0.763);
+    margin-bottom: 15px;
+    margin-right: 20%;
+    margin-left: 20%;
+    background-color: rgba(255, 255, 255, 0.53);
+    border-radius: 25px;
+    margin-bottom: 120px;
+    padding: 20px;
+}
+
+.hero-slider .carousel-cell .inner .title {
+    margin-bottom: 80px;
+    font-family: "Lemonada", sans-serif;
+    font-size: 3rem;
+    line-height: 1.2em;
+    letter-spacing: 3px;
+}
+
+.hero-slider .carousel-cell .inner .btn {
+    border: 1px solid #fff;
+    padding: 14px 18px;
+    font-family: "Lemonada", sans-serif;
+    font-size: 15px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #000000;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    background-color: #aa9863;
+    border-radius: 25px;
+}
+
+.hero-slider .carousel-cell .inner .btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+.hero-slider .flickity-prev-next-button {
+    width: 80px;
+    height: 80px;
+    background: transparent;
+}
+
+.hero-slider .flickity-prev-next-button:hover {
+    background: transparent;
+}
+
+.hero-slider .flickity-prev-next-button .arrow {
+    fill: white;
+}
+
+.hero-slider .flickity-page-dots {
+    bottom: 30px;
+}
+
+.hero-slider .flickity-page-dots .dot {
+    width: 47px;
+    height: 13px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 0 solid white;
+    border-radius: 25px;
+}
+
+.hero-slider .flickity-page-dots .dot.is-selected {
+    background: #aa9863;
+    border: 0 solid #aa9863;
+}
+
+
+/* Estilos para pantallas de hasta 768px de ancho (tablets y dispositivos móviles) */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 50% auto;
+        padding: 25px;
+        padding-top: 0px;
+        width: 284px;
+    }
+
+    .modal h2 {
+        font-size: 23px;
+        margin: 15px;
+    }
+
+    .modal p {
+        font-size: 20px;
+    }
+
+    .hero-slider .carousel-cell .inner .subtitle {
+        font-size: 17px;
+        margin-bottom: 56px;
+    }
+
+    .hero-slider .carousel-cell .inner .title {
+        margin-bottom: 42px;
+        font-size: 35px;
+    }
+}
+
+/* Estilos para pantallas tablets de mayor tamaño  */
+@media (min-width: 820px) and (max-width: 1180px) {
+    .modal-content {
+        margin: 52% auto;
+        width: 47%;
+    }
+}
+
+/* Estilos para pantallas moviles más pequeños */
+@media (max-width: 667px) {
+    .navbar {
+        width: 95%;
+    }
+
+    .navbar-logo {
+        height: 50px;
+        margin-right: 0px;
+    }
+
+    .hero-slider .carousel-cell .inner .title {
+        margin-top: 5px;
+        font-size: 27px;
+        margin-bottom: 24px;
+        padding: 0px;
+    }
+
+    .hero-slider .carousel-cell .inner .subtitle {
+        padding: 6px;
+        margin-bottom: 40px;
+    }
+}
