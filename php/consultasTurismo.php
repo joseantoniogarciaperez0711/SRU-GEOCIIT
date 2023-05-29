@@ -2,12 +2,18 @@
 require_once 'conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $cultivo = $_POST['cultivo'];
-    $produccion = $_POST['produccion'];
-    $suelo = $_POST['suelo'];
-    $vegetacion = $_POST['vegetacion'];
-    $clima = $_POST['clima'];
-    $lluvia = $_POST['lluvia'];
+    
+    $poblacion = $_POST['poblacion'];
+    $inversion = $_POST['inversion'];
+    $seguridad = $_POST['seguridad'];
+    $pib = $_POST['pib'];
+    $infraestructura = $_POST['infraestructura'];
+    $obrasPublicas = $_POST['obrasPublicas'];
+    $rezagoSocial = $_POST['rezagoSocial'];
+    $visitantes = $_POST['visitantes'];
+    $alojamiento = $_POST['alojamiento'];
+    $ofertaTuristica = $_POST['ofertaTuristica'];
+
 
     // Haz lo que necesites con el cultivo recibido
     // por ejemplo, puedes almacenarlo en una base de datos o realizar alguna acción basada en ello
@@ -17,33 +23,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Vaciar la tabla RecibirPonderaciones antes de insertar nuevos datos
     Consultas::vaciarTablaRecibirPonderaciones();
 
-    Consultas::insertarPonderaciones($cultivo, $produccion, $suelo, $vegetacion, $clima, $lluvia);
+    Consultas::insertarPonderaciones($poblacion, $inversion, $seguridad, $pib, $infraestructura, $obrasPublicas, $rezagoSocial, $visitantes, $alojamiento, $ofertaTuristica);
 }
 
 class Consultas {
-    public static function obtenerNombresCultivos() {
-        $result = '';
-        $nombresCultivos = '';
 
+    public static function insertarPonderaciones($poblacion, $inversion, $seguridad, $pib, $infraestructura, $obrasPublicas, $rezagoSocial, $visitantes, $alojamiento, $ofertaTuristica) {
         try {
             $conn = ConexionBD::obtenerConexion();
-            $query = "SELECT Nombre_Cultivo FROM productos";
-            $stmt = $conn->query($query);
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-            $nombresCultivos = implode(", ", array_column($result, 'Nombre_Cultivo'));
-
-            return $nombresCultivos;
-        } catch (PDOException $error) {
-            echo "Error al realizar la consulta: " . $error->getMessage();
-            return 'Algo salió mal';
-        }
-    }
-
-    public static function insertarPonderaciones($cultivo, $produccion, $suelo, $vegetacion, $clima, $lluvia) {
-        try {
-            $conn = ConexionBD::obtenerConexion();
-            $query = "INSERT INTO RecibirPonderaciones VALUES ('$cultivo', '$produccion', '$suelo', '$vegetacion', '$clima', '$lluvia', '$lluvia')";
+            $query = "INSERT INTO RecibirPonderacionesTurista(Pond_Poblacion, Pond_Inversion, Pond_Seguridad, Pond_PIB, Pond_Infraestructura, Pond_Obras, Pond_Rezago, Pond_Visitantes, Pond_Alojamiento, Pond_Turismo) VALUES ('$poblacion', '$inversion', '$seguridad', '$pib', '$infraestructura', '$obrasPublicas', '$rezagoSocial', '$visitantes', '$alojamiento', '$ofertaTuristica')";
             $stmt = $conn->query($query);
             return true;
         } catch (PDOException $error) {
@@ -52,10 +40,10 @@ class Consultas {
         }
     }
 
-    public static function obtenerResultadoPonderacionAgricultor() {
+    public static function obtenerResultadoPonderacionTurismo() {
         try {
             $conn = ConexionBD::obtenerConexion();
-            $query = "SELECT * FROM ResultadoPonderacionAgricultor";
+            $query = "SELECT * FROM ResultadoPonderacionTurismo";
             $stmt = $conn->query($query);
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -70,7 +58,7 @@ class Consultas {
     public static function vaciarTablaRecibirPonderaciones() {
         try {
             $conn = ConexionBD::obtenerConexion();
-            $query = "DELETE FROM RecibirPonderaciones";
+            $query = "DELETE FROM RecibirPonderacionesTurista";
             $stmt = $conn->query($query);
             return true;
         } catch (PDOException $error) {
@@ -80,6 +68,5 @@ class Consultas {
     }
 }
 
-$nombresCultivos = Consultas::obtenerNombresCultivos();
 ?>
 

@@ -282,3 +282,31 @@
   }
 
 }
+
+@media (max-width: 667px) {
+  .descripcion-mensaje h1 {
+    font-size: 23px;
+  }
+
+  .descripcion-pie h4 {
+    font-size: 14px;
+  }
+
+  .descripcion-pie h2 {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 844px) {
+  .descripcion-mensaje h1 {
+    font-size: 31px;
+  }
+
+  .descripcion-pie h4 {
+    font-size: 17px;
+  }
+
+  .descripcion-pie h2 {
+    font-size: 19px;
+  }
+}
